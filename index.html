@@ -1,0 +1,186 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>LOG LAB｜三隊兩階段圖形闖關</title><style>
+:root{color-scheme:dark;--bg:#03060e;--panel:#091120;--soft:#111d31;--line:#28364d;--txt:#eaf4ff;--muted:#a1b5d1;--cyan:#66e4ed;--good:#53ebad;--red:#ff8b99;--gold:#ffcd73}*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden;background:var(--bg);font-family:system-ui,"Microsoft JhengHei",sans-serif;color:var(--txt)}button{font-family:inherit;touch-action:manipulation;cursor:pointer}.app{height:100dvh;min-height:0;display:grid;grid-template-rows:62px minmax(0,1fr);padding:9px;gap:9px;background:radial-gradient(ellipse at 50% 0%,#101e34 0%,#03060e 62%)}header{display:flex;align-items:center;justify-content:space-between;min-width:0;padding:8px 17px;border:1px solid #2a4569;background:#091626;border-radius:16px}header h1{font-size:clamp(17px,2vw,26px);margin:0;letter-spacing:.04em}header .sub{font-size:12px;color:#9ec4e5;margin-top:3px}header button{background:#213859;border:1px solid #496b96;color:#e7f4ff;border-radius:9px;padding:9px 12px;font-size:14px;font-weight:700}.teams{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;min-height:0}.team{--team:#66e4ed;min-width:0;min-height:0;background:linear-gradient(180deg,#0b1729,#060e1a);border:1px solid #344962;border-top:3px solid var(--team);border-radius:15px;display:grid;grid-template-rows:auto auto auto minmax(130px,1fr) auto auto;gap:7px;padding:11px;overflow:hidden}.team:nth-child(2){--team:#f5af76}.team:nth-child(3){--team:#baadff}.head{display:flex;justify-content:space-between;gap:5px;align-items:center}.teamname{font-size:clamp(17px,1.5vw,22px);font-weight:850;color:var(--team)}.step{font-size:13px;color:#b8c9e2;background:#1b304d;padding:5px 9px;border-radius:100px}.progress{height:5px;background:#2b3c56;border-radius:30px;overflow:hidden}.progress>div{height:100%;width:0;background:var(--team);transition:width .25s}.question{min-height:75px;background:#101f35;border:1px solid #2b4565;border-radius:10px;padding:9px 10px;display:flex;flex-direction:column;gap:4px;justify-content:center}.qtype{font-size:12px;color:var(--team);font-weight:800}.qtext{font-size:clamp(15px,1.3vw,19px);font-weight:750;line-height:1.4}.small{font-size:12px;color:#afc2dd}.plot{position:relative;min-height:0;overflow:hidden;background:#050c17;border:1px solid #2b4567;border-radius:11px;display:flex}.plot canvas{display:block;width:100%;height:100%;touch-action:none}.plotlabel{pointer-events:none;position:absolute;top:7px;right:9px;color:#8ca9c9;font-size:11px;background:#14273ed0;padding:4px 7px;border-radius:6px}.options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;min-height:46px}.opt{min-width:0;background:#233a5b;border:1px solid #45638b;border-radius:10px;color:#fff;padding:9px 3px;font-size:clamp(14px,1.15vw,19px);font-weight:750}.opt:active,.control:active{transform:scale(.98)}.answerbar{display:grid;grid-template-columns:1fr 1fr;gap:6px}.control{background:#1c3150;border:1px solid #405c81;color:#d8e9fd;border-radius:10px;min-width:0;font-size:clamp(12px,1vw,15px);font-weight:700;padding:8px 5px}.control.next{background:#166e79;color:#e5ffff;border-color:#2798a5}.control:disabled,.opt:disabled{opacity:.4;cursor:default}.feedback{height:31px;font-size:clamp(12px,1vw,15px);font-weight:700;display:flex;align-items:center;justify-content:center;text-align:center;border-radius:8px;background:#15243a;color:#bcd1ec;padding:2px 5px;white-space:normal}.feedback.good{background:#154637;color:#8cffd0}.feedback.bad{background:#482333;color:#ffb8bd}.complete .question{background:#143b35;border-color:#1b8b6c}.complete .plot{border-color:#37caa0}.footerinfo{font-size:12px;color:#a8bad4;text-align:right}.math{white-space:nowrap;display:inline-block;letter-spacing:0;font-family:Georgia,"Times New Roman","Microsoft JhengHei",serif}.math sub{font-size:.67em;vertical-align:-.42em;line-height:0;margin-left:.02em}.frac{display:inline-flex;vertical-align:middle;flex-direction:column;align-items:center;line-height:1.03;font-size:.95em;min-width:1.05em}.frac .num{display:block;width:100%;border-bottom:1px solid currentColor;padding:0 .08em .045em;text-align:center}.frac .den{display:block;width:100%;padding-top:.04em;text-align:center}.opt .math{font-size:1.1em}.qtext .math{font-size:1.09em}@media(max-width:1050px){.app{grid-template-rows:56px minmax(0,1fr);padding:5px;gap:5px}.teams{gap:5px}.team{padding:6px;gap:5px}.question{padding:7px;min-height:65px}.plotlabel{font-size:10px}.opt{padding:6px 1px}.feedback{height:29px}}@media(max-height:650px){header .sub,.plotlabel{display:none}.app{grid-template-rows:47px minmax(0,1fr)}.team{gap:4px;padding:6px}.question{min-height:55px}.opt{padding:5px 2px}.control{padding:5px 2px}.feedback{height:23px}.progress{height:4px}}@media(max-width:760px){header h1{font-size:15px}header button{font-size:11px;padding:5px}.teamname{font-size:14px}.qtext{font-size:12px}.qtype,.small{font-size:10px}.step{font-size:10px;padding:3px}.opt{font-size:11px}.control{font-size:10px}.feedback{font-size:10px}} 
+</style></head><body><div class="app"><header><div><h1>◈ LOG LAB　對數函數・三隊圖形闖關</h1><div class="sub">第一階段：3 題自由描圖＋1 題對稱｜第二階段：4 種題型各 1 題｜每隊獨立進行</div></div><button id="restartAll">↻ 三隊重新抽題</button></header><main class="teams" id="teams"></main></div>
+<script>
+'use strict';
+const $=id=>document.getElementById(id), palette=['#66e4ed','#f5af76','#baadff'];
+const coeffs=[-3,-2,-1,1,2,3];
+const bases=[2,3,.5,1/3];
+const baseName=b=>b===.5?'1/2':b===1/3?'1/3':String(b);
+const baseSub=b=>b===.5?'<span class="frac"><span class="num">1</span><span class="den">2</span></span>':b===1/3?'<span class="frac"><span class="num">1</span><span class="den">3</span></span>':String(b);
+const logBase=b=>`<span class="math">log<sub>${baseSub(b)}</sub> x</span>`;
+const logTen=()=>'<span class="math">log x</span>';
+const baseFunc=b=>x=>Math.log(x)/Math.log(b);
+function firstSet(){
+ // 兩個底數類別都必定出現，另外隨機加入一種底數；對稱題必出。
+ const up=pick([2,3]),down=pick([.5,1/3]);
+ const third=pick(bases.filter(b=>b!==up&&b!==down));
+ return [...shuffle([up,down,third]).map(base=>({type:'free',base})),{type:'baseMirror',base:pick(bases)}];
+}
+
+const pick=a=>a[Math.floor(Math.random()*a.length)];
+const shuffle=a=>{a=[...a];for(let i=a.length-1;i>0;i--){let j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
+const fmt=t=>t<0?'−'+Math.abs(t):''+t;
+const math=t=>t===1?'log x':t===-1?'−log x':`${fmt(t)} log x`;
+const htmlmath=t=>t===1?logTen():t===-1?`−${logTen()}`:`${fmt(t)} ${logTen()}`;
+function buildSet(){
+ // 第二階段四種題型各一題，順序隨機；每輪係數重新抽取。
+ return shuffle([
+   {type:'plot',t:pick(coeffs)},
+   {type:'trend',t:pick(coeffs)},
+   {type:'compare',t:pick(coeffs.filter(t=>t!==1))},
+   {type:'mirror',t:pick([1,2,3,-1,-2,-3])}
+ ]);
+}
+const states=[0,1,2].map(i=>({i,phase:1,step:0,hints:2,questions:firstSet(),done:false,answered:false,reference:false,curve:null,point:null,strokes:[],drawing:false,score:0,feedback:'手指沿著圖形趨勢描繪；完成後按「檢查繪圖」',fbClass:'',refsFlashed:0}));
+function typeText(q){
+if(q.type==='free')return ['第一階段・手繪函數',`請畫出 y = ${logBase(q.base)} 的圖形。`,'可沿曲線自由繪製，按「檢查繪圖」評分（70 分過關）；畫錯可清除重畫。'];
+if(q.type==='baseMirror')return ['第一階段・x 軸對稱',`畫面已顯示 y = ${logBase(q.base)}；請找出對稱於 x 軸的函數。`,'答對後會疊上對稱曲線；底數會變成倒數。'];
+if(q.type==='plot')return ['描點成圖',`已知 y = ${htmlmath(q.t)}，請在 x = 10 的直線上點出正確座標。`,'提示：log 10 = 1；點對後會顯示整條曲線。'];
+if(q.type==='trend')return ['圖形判讀',`y = ${math(q.t)} 是哪一種圖形？`,'先觀察係數 t 的正負。'];
+if(q.type==='compare')return ['係數觀察',`當 x = 10 時，y = ${htmlmath(q.t)} 的座標 y 是多少？`,'因為 log 10 = 1。'];
+return ['x 軸對稱',`已顯示 y = ${htmlmath(q.t)} 的原圖；哪一個函數與它對稱於 x 軸？`,'先看圖回答，答對後才會顯示對稱後的曲線。'];}
+function answers(q){if(q.type==='plot'||q.type==='free')return [];
+if(q.type==='baseMirror'){let correct=1/q.base;const vals=shuffle(bases);return vals.map(v=>({v:String(v),label:`y = ${logBase(v)}`}));}
+
+if(q.type==='trend')return [{v:'up',label:'嚴格遞增'},{v:'down',label:'嚴格遞減'},{v:'none',label:'不是函數'},{v:'flat',label:'常數函數'}];
+if(q.type==='compare'){let others=shuffle(coeffs.filter(t=>t!==q.t)).slice(0,3);return shuffle([q.t,...others]).map(v=>({v:String(v),label:fmt(v)}));}
+let opts=shuffle([q.t*-1,...coeffs.filter(v=>v!==-q.t).slice(0,3)]);return opts.map(v=>({v:String(v),label:`y = ${htmlmath(v)}`}));}
+function correct(q){if(q.type==='baseMirror')return String(1/q.base);if(q.type==='trend')return q.t>0?'up':'down';if(q.type==='compare')return String(q.t);if(q.type==='mirror')return String(-q.t);return ''}
+function makeCard(s){let el=document.createElement('section');el.className='team';el.id=`team${s.i}`;el.innerHTML=`<div class="head"><span class="teamname">第 ${['一','二','三'][s.i]} 隊</span><span class="step" id="step${s.i}"></span></div><div class="progress"><div id="bar${s.i}"></div></div><div class="question"><span class="qtype" id="type${s.i}"></span><span class="qtext" id="q${s.i}"></span><span class="small" id="hinttext${s.i}"></span></div><div class="plot"><canvas id="c${s.i}"></canvas><span class="plotlabel">x、y 等單位長｜y 每格 1</span></div><div class="options" id="opts${s.i}"></div><div class="answerbar"><button class="control" id="help${s.i}">♧ 求救卡</button><button class="control next" id="next${s.i}" disabled>下一關 →</button></div><div class="feedback" id="fb${s.i}"></div>`;
+ $('teams').append(el);$(`help${s.i}`).addEventListener('click',()=>help(s));$(`next${s.i}`).addEventListener('click',()=>next(s));let canvas=$(`c${s.i}`);canvas.addEventListener('pointerdown',e=>{if(s.phase===1)startStroke(s,e);else tap(s,e)});canvas.addEventListener('pointermove',e=>moveStroke(s,e));canvas.addEventListener('pointerup',()=>stopStroke(s));canvas.addEventListener('pointercancel',()=>stopStroke(s));render(s);}
+function render(s){const q=s.questions[s.step];const [type,prompt,note]=typeText(q), index=s.i;
+ $(`step${index}`).textContent=`${s.phase===1?"第一階段":"第二階段"}｜${s.step+1} / ${s.phase===1?4:4}`;$(`bar${index}`).style.width=`${(s.phase===1?(s.step+(s.answered?1:0))/4:(s.step+(s.answered?1:0))/4)*100}%`;$(`type${index}`).textContent=type;$(`q${index}`).innerHTML=prompt;$(`hinttext${index}`).textContent=note;
+ const arr=answers(q);const opts=$(`opts${index}`);opts.innerHTML='';
+ if(q.type==='free'){opts.innerHTML='<button class="opt" id="score'+s.i+'">✓ 檢查繪圖</button><button class="opt" id="clear'+s.i+'">↺ 清除重畫</button>';opts.querySelector('#score'+s.i).onclick=()=>grade(s);opts.querySelector('#clear'+s.i).onclick=()=>{if(s.answered)return;s.strokes=[];setFeedback(s,'已清除，請重新畫圖');draw(s)};opts.querySelector('#score'+s.i).disabled=s.answered;opts.querySelector('#clear'+s.i).disabled=s.answered;}else if(q.type==='plot'){opts.innerHTML='<div style="grid-column:1/-1;display:flex;align-items:center;justify-content:center;color:#a4c8dc;font-size:14px">☝️ 請直接點選座標平面上的格點</div>'}else{arr.forEach(o=>{let b=document.createElement('button');b.className='opt';b.innerHTML=o.label;b.disabled=s.answered;b.onclick=()=>choose(s,o.v);opts.append(b)})}
+ $(`help${index}`).textContent=`♧ 求救卡 × ${s.hints}`;$(`help${index}`).disabled=s.hints===0||s.answered;$(`next${index}`).disabled=!s.answered;$(`next${index}`).textContent=s.step===(s.phase===1?3:3)?(s.phase===1?'進入第二階段 →':'完成闖關 ✓'):'下一關 →'; setFeedback(s,s.feedback,s.fbClass);
+ requestAnimationFrame(()=>draw(s));}
+function setFeedback(s,msg,cl=''){s.feedback=msg;s.fbClass=cl;let el=$(`fb${s.i}`);el.textContent=msg;el.className='feedback '+cl;}
+function success(s){
+ s.answered=true;
+ const q=s.questions[s.step];
+ // 對稱題：題幹函數始終保留，答對後才顯示其對 x 軸的對稱圖形。
+ s.curve=(q.type==='mirror') ? -q.t : (q.type==='baseMirror'||q.type==='free') ? null : q.t;
+ setFeedback(s,`👏 正確！第 ${s.step+1} 題完成`, 'good');
+ render(s);
+}
+function choose(s,v){if(s.answered)return;const q=s.questions[s.step];if(v===correct(q)){success(s)}else{setFeedback(s,'再觀察一次係數或圖形喔！','bad');}}
+function tap(s,e){const q=s.questions[s.step];if(q.type!=='plot'||s.answered)return;const canvas=$(`c${s.i}`),r=canvas.getBoundingClientRect();const x=(e.clientX-r.left)*canvas.width/r.width,y=(e.clientY-r.top)*canvas.height/r.height;const g=geometry(canvas);const wx=(x-g.ox)/g.unit,wy=(g.oy-y)/g.unit;let sy=Math.round(wy);
+ if(Math.abs(wx-10)>0.75){setFeedback(s,'請在 x = 10 的垂直格線上選點','bad');return}
+ if(Math.abs(wy-sy)>0.46){setFeedback(s,'再靠近格點一些','bad');return}
+ if(sy!==q.t){s.point={x:10,y:sy,wrong:true};setFeedback(s,`你標的是 (10, ${sy})，再試試！`,'bad');draw(s);return}
+ s.point={x:10,y:sy,wrong:false};success(s);setFeedback(s,`👏 已標記 (10, ${fmt(sy)})，曲線已顯示！`,'good');}
+function help(s){if(s.answered||s.hints<=0)return;s.hints--;s.reference=true;const q=s.questions[s.step];const msg=q.type==='free'?'提示：都通過 (1,0)；往右底數大於 1 上升，否則下降。':q.type==='baseMirror'?'把每個 y 值變成相反數，底數變成倒數。':q.type==='plot'?'參考線已顯示：y = log x；x = 10 時 y = 1':q.type==='trend'?'t 正為遞增，t 負為遞減':q.type==='compare'?'log 10 = 1，請代入 x = 10': '對稱於 x 軸，函數值變號';setFeedback(s,msg);$(`help${s.i}`).textContent=`♧ 求救卡 × ${s.hints}`;$(`help${s.i}`).disabled=s.hints===0;draw(s);}
+function next(s){if(!s.answered)return;
+ if(s.phase===1&&s.step===3){s.phase=2;s.step=0;s.questions=buildSet();s.hints=2;s.strokes=[];s.score=0;s.answered=false;s.reference=false;s.curve=null;s.point=null;s.feedback='第二階段開始！每隊再有 2 張求救卡';s.fbClass='';render(s);return;}
+ if(s.phase===2&&s.step===3){complete(s);return}
+ s.step++;s.answered=false;s.reference=false;s.curve=null;s.point=null;s.strokes=[];s.score=0;s.feedback='請觀察下一個題目';s.fbClass='';render(s)}
+function complete(s){s.done=true;let node=$(`team${s.i}`);node.classList.add('complete');$(`type${s.i}`).textContent='完成挑戰';$(`q${s.i}`).textContent='🏆 兩階段全過！能手繪基本曲線，也能從係數預測圖形。';$(`hinttext${s.i}`).textContent='按右上角「重新抽題」可開啟新的一輪。';$(`opts${s.i}`).innerHTML='<div style="grid-column:1/-1;text-align:center;color:#7df2c0;font-size:20px;font-weight:800">MISSION COMPLETE</div>';$(`next${s.i}`).disabled=true;$(`help${s.i}`).disabled=true;$(`bar${s.i}`).style.width='100%';setFeedback(s,'🎉 恭喜過關！','good');draw(s)}
+function geometry(canvas){const w=canvas.width,h=canvas.height;const unit=Math.min((w-39)/12,(h-25)/9);const ox=23,oy=h/2;return{w,h,unit,ox,oy}}
+function draw(s){const canvas=$(`c${s.i}`);const r=canvas.getBoundingClientRect();if(r.width<2||r.height<2)return;const dpr=Math.min(window.devicePixelRatio||1,2),w=Math.round(r.width*dpr),h=Math.round(r.height*dpr);if(canvas.width!==w||canvas.height!==h){canvas.width=w;canvas.height=h}const ctx=canvas.getContext('2d'),g=geometry(canvas),{unit:u,ox,oy}=g;const X=v=>ox+v*u,Y=v=>oy-v*u;
+ ctx.clearRect(0,0,w,h);ctx.fillStyle='#050c17';ctx.fillRect(0,0,w,h);
+ // dark neutral grid with noticeable but subdued lines; units equal on axes
+ ctx.strokeStyle='rgba(125,139,150,.60)';ctx.lineWidth=Math.max(1,dpr*.85);
+ for(let i=0;i<=12;i++){ctx.beginPath();ctx.moveTo(X(i),0);ctx.lineTo(X(i),h);ctx.stroke()}
+ for(let j=-5;j<=5;j++){ctx.beginPath();ctx.moveTo(0,Y(j));ctx.lineTo(w,Y(j));ctx.stroke()}
+ ctx.strokeStyle='#8eabc8';ctx.lineWidth=1.6*dpr;ctx.beginPath();ctx.moveTo(X(0),0);ctx.lineTo(X(0),h);ctx.moveTo(X(0),Y(0));ctx.lineTo(w,Y(0));ctx.stroke();
+ ctx.fillStyle='#99b1cf';ctx.font=`${Math.max(10,11*dpr)}px system-ui`;ctx.textAlign='center';for(let i=0;i<=12;i+=2)ctx.fillText(i,X(i),Y(0)+15*dpr);ctx.textAlign='right';for(let i=-4;i<=4;i+=1){if(i!==0)ctx.fillText(i,X(0)-4*dpr,Y(i)+4*dpr)}ctx.textAlign='left';ctx.fillText('y',ox+4*dpr,11*dpr);ctx.fillText('x',w-10*dpr,Y(0)-7*dpr);
+ const curve=(t,color,width,dash=[])=>{ctx.beginPath();ctx.strokeStyle=color;ctx.lineWidth=width*dpr;ctx.setLineDash(dash.map(n=>n*dpr));let started=false;for(let x=.0005;x<=12;x+=.008){let yy=typeof t==='function'?t(x):t*Math.log10(x),py=Y(yy);if(py < -h*.1 || py >h*1.1){started=false;continue}if(!started){ctx.moveTo(X(x),py);started=true}else ctx.lineTo(X(x),py)}ctx.stroke();ctx.setLineDash([])};
+ // 對稱題在答題前就顯示題幹的原函數；答對才疊上其 x 軸對稱曲線。
+ const currentQuestion=s.questions[s.step];
+ if(currentQuestion?.type==='mirror'||currentQuestion?.type==='baseMirror'){
+   if(currentQuestion.type==='baseMirror')curve(baseFunc(currentQuestion.base),'#a9bcd9',2.5);else curve(currentQuestion.t,'#a9bcd9',2.5);
+   if(s.answered){
+     if(currentQuestion.type==='baseMirror')curve(baseFunc(1/currentQuestion.base),palette[s.i],3);else curve(-currentQuestion.t,palette[s.i],3);
+     ctx.font=`bold ${Math.max(11,12*dpr)}px system-ui`;
+     ctx.textAlign='left';
+     ctx.fillStyle='#a9bcd9';
+     ctx.fillText('原圖',Math.min(w-65*dpr,X(7)),Math.max(22*dpr,Y(currentQuestion.type==='baseMirror'?baseFunc(currentQuestion.base)(7):currentQuestion.t*Math.log10(7))-7*dpr));
+     ctx.fillStyle=palette[s.i];
+     ctx.fillText('對稱圖',Math.min(w-65*dpr,X(7)),Math.min(h-12*dpr,Y(currentQuestion.type==='baseMirror'?baseFunc(1/currentQuestion.base)(7):-currentQuestion.t*Math.log10(7))+17*dpr));
+   }
+ }else{
+   // 非對稱題：第一關或使用求救卡時，才顯示 y = log x 參考線。
+   if(s.phase===2&&(s.step===0||s.reference))curve(1,'rgba(182,194,212,.65)',1.45,[4,5]);
+   if(s.curve!==null)curve(s.curve,palette[s.i],2.8);
+   if(currentQuestion?.type==='free'){if(s.reference)curve(1,'rgba(182,194,212,.55)',1.3,[4,4]);if(s.answered)curve(baseFunc(currentQuestion.base),palette[s.i],3); drawStrokes(s,ctx,X,Y,dpr);}
+ }
+ // reference marker at x=10: mild line to aid positioning
+ if(s.phase===2&&s.questions[s.step]?.type==='plot'&&!s.done){ctx.strokeStyle='rgba(255,205,115,.55)';ctx.lineWidth=1.4*dpr;ctx.setLineDash([3*dpr,4*dpr]);ctx.beginPath();ctx.moveTo(X(10),0);ctx.lineTo(X(10),h);ctx.stroke();ctx.setLineDash([])}
+ if(s.point){const p=s.point;ctx.beginPath();ctx.arc(X(p.x),Y(p.y),5.8*dpr,0,Math.PI*2);ctx.fillStyle=p.wrong?'#ff8b99':palette[s.i];ctx.fill();ctx.lineWidth=2*dpr;ctx.strokeStyle='#ffffff';ctx.stroke();const label=`(${p.x}, ${fmt(p.y)})`;ctx.font=`bold ${12*dpr}px system-ui`;ctx.textAlign='right';ctx.fillStyle=p.wrong?'#ffb0bd':'#f4feff';ctx.fillText(label,X(10)-8*dpr,Y(p.y)-8*dpr);ctx.textAlign='left'}
+}
+
+function drawStrokes(s,ctx,X,Y,dpr){
+ ctx.save();ctx.strokeStyle='#fff19b';ctx.lineWidth=2.5*dpr;ctx.lineCap='round';ctx.lineJoin='round';
+ for(const stroke of s.strokes){ctx.beginPath();stroke.forEach((pt,i)=>{if(i===0)ctx.moveTo(X(pt.x),Y(pt.y));else ctx.lineTo(X(pt.x),Y(pt.y))});ctx.stroke();}
+ ctx.restore();
+}
+function pointerWorld(s,e){const canvas=$(`c${s.i}`),r=canvas.getBoundingClientRect(),g=geometry(canvas);return{x:((e.clientX-r.left)*canvas.width/r.width-g.ox)/g.unit,y:(g.oy-(e.clientY-r.top)*canvas.height/r.height)/g.unit};}
+function startStroke(s,e){if(s.phase!==1||s.questions[s.step].type!=='free'||s.answered)return;
+ s.drawing=true;s.strokes.push([]);$(`c${s.i}`).setPointerCapture(e.pointerId);moveStroke(s,e);}
+function moveStroke(s,e){if(!s.drawing)return;const p=pointerWorld(s,e);if(p.x>0&&p.x<12&&p.y>-7&&p.y<7){const st=s.strokes[s.strokes.length-1];if(!st.length||Math.hypot(p.x-st[st.length-1].x,p.y-st[st.length-1].y)>.05)st.push(p);draw(s);}}
+function stopStroke(s){s.drawing=false;}
+function grade(s){
+ if(s.answered||s.phase!==1)return;
+ const q=s.questions[s.step];if(q.type!=='free')return;
+ const strokes=s.strokes.filter(st=>st.length>=3),pts=strokes.flat();
+ if(pts.length<12){setFeedback(s,'先畫一段連續曲線，再進行評分。','bad');return;}
+ const f=baseFunc(q.base),limit=(v)=>Math.max(0,Math.min(1,v));
+ const d=(x,y)=>Math.min(...pts.map(p=>Math.hypot(p.x-x,p.y-y)));
+ // 必經兩個關鍵點；在小型觸控分區採約半格的寬容度。
+ const anchor1=limit(1-d(1,0)/.9),anchorB=limit(1-d(q.base,1)/.9);
+ // 整體趨勢：對手繪線段依 x 座標判斷左右高度是否符合底數條件。
+ let slopes=[];
+ for(const st of strokes){
+   const arr=[...st].sort((a,b)=>a.x-b.x);
+   const n=Math.max(1,Math.floor(arr.length/6));
+   const a=arr.slice(0,n).reduce((v,p)=>v+p.y,0)/n;
+   const b=arr.slice(-n).reduce((v,p)=>v+p.y,0)/n;
+   const dx=arr[arr.length-1].x-arr[0].x;
+   if(dx>1.7)slopes.push((b-a)/dx);
+ }
+ const idealSign=q.base>1?1:-1;
+ const trend=slopes.length?slopes.reduce((sum,m)=>sum+limit((idealSign*m+.06)/.19),0)/slopes.length:0;
+ // 凹向性：對繪製足夠長的單段曲線，左/中/右平均高度比較斜率。
+ let bends=[];
+ for(const st of strokes){
+   const arr=[...st].sort((a,b)=>a.x-b.x);
+   const lo=arr[0].x,hi=arr[arr.length-1].x;
+   if(hi-lo<3)continue;
+   const at=x=>{
+     const cand=arr.filter(p=>Math.abs(p.x-x)<.5);
+     return cand.length?cand.reduce((v,p)=>v+p.y,0)/cand.length:null;
+   };
+   const y1=at(lo+(hi-lo)*.12),y2=at((lo+hi)/2),y3=at(lo+(hi-lo)*.88);
+   if(y1===null||y2===null||y3===null)continue;
+   const dy=y2-(y1+y3)/2;
+   // 遞增 log 凹口向下 => 中點在弦上方，反之亦然。
+   const expected=q.base>1?1:-1;
+   bends.push(limit(.5+expected*dy/.5));
+ }
+ const curvature=bends.length?bends.reduce((a,b)=>a+b,0)/bends.length:0;
+ // 多點整體吻合：不讓只描到兩個關鍵點就得到高分。
+ const samples=[.5,1,2,3,4,6,8,10];
+ let matches=[];
+ for(const x of samples){
+   const near=pts.filter(p=>Math.abs(p.x-x)<.55);
+   if(near.length){
+     const best=Math.min(...near.map(p=>Math.abs(p.y-f(p.x))));
+     matches.push(limit(1-best/1.05));
+   }
+ }
+ const shape=matches.length?matches.reduce((a,b)=>a+b,0)/samples.length:0;
+ const score=Math.round(20*anchor1+20*anchorB+20*trend+15*curvature+25*shape);
+ s.score=score;
+ if(score>=70){
+   s.answered=true;s.curve=null;
+   setFeedback(s,`👏 ${score} 分，過關！已疊上正確函數圖形。`,'good');render(s);
+ }else{
+   const weak=[['(1,0)',anchor1],['(底數,1)',anchorB],['增減趨勢',trend],['凹向性',curvature],['曲線完整度',shape]].sort((a,b)=>a[1]-b[1]);
+   setFeedback(s,`${score} 分｜再修正${weak[0][0]}（70 分過關）`,'bad');
+ }
+}
+
+function restart(){for(const s of states){s.phase=1;s.step=0;s.hints=2;s.questions=firstSet();s.strokes=[];s.score=0;s.done=false;s.answered=false;s.reference=false;s.curve=null;s.point=null;s.feedback='看題目，開始挑戰！';s.fbClass='';$(`team${s.i}`).classList.remove('complete');render(s)}}
+for(const s of states)makeCard(s);$('restartAll').addEventListener('click',restart);new ResizeObserver(()=>states.forEach(draw)).observe($('teams'));
+</script></body></html>
